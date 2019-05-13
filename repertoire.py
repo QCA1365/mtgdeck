@@ -60,16 +60,24 @@ def ManaCalc(deck,worth):
         manaColorless5 = manaColorless4.replace('R','')
         OperationManas = manaColorless5.split(' ')
         if len(OperationManas) == 1:
-            if OperationManas[0] == 'X':
-                ManaValue = "0"
+            if OperationManas[0][:1] == 'X':
+                ManaValue = 0
             elif OperationManas[0].isdigit() == True:
                 ManaValue = int(OperationManas[0])
         elif len(OperationManas) == 2:
             if OperationManas[0].isdigit() == True and OperationManas[1].isdigit() == True:
                 ManaValue = int(OperationManas[0]) + int(OperationManas[1])
+            elif OperationManas[0] == 'X':
+                ManaValue = 0 + int(OperationManas[1])
         card[3] = str(ManaValue)
-        if card[3] == worth or card[3] == '0':
+        if card[3] == worth:
             print(card)
+        elif OperationManas[0] == "X":
+            if len(OperationManas) >= 2:
+                if OperationManas[1] <= worth:
+                    print(card)
+            else:
+                print(card)
 ###============== Main Program ==============###
 sets = []
 
