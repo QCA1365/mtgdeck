@@ -73,7 +73,7 @@ def ManaCalc(deck,worth):
 ###============== Main Program ==============###
 sets = []
 
-RemplirSets("sets", sets)
+RemplirSets("sets.txt", sets)
 
 while True:
     print("\nBienvenue dans l'index des cartes legales de Magic: The Gathering\n")
