@@ -1,8 +1,8 @@
 Ixalan,XLN
 Rivals of Ixalan,RIX
 Dominaria,DOM
-CS2019,M19
+Core Set 2019,M19
 Guilds of Ravnica,GRN
 Ravnica Allegiance,RNA
 War of the Spark,WAR
-CS2020,M20
+Core Set 2020,M20

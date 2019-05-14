@@ -85,7 +85,7 @@ RemplirSets("sets/sets.txt", sets)
 
 while True:
     print("\nBienvenue dans l'index des cartes legales de Magic: The Gathering\n")
-    print("1: Ajouter une carte a l'inventaire")
+    print("1: Acces a l'inventaire")
     print("2: Chercher de l'information sur une carte")
     action = input("Que puis-je faire pour toi? ")
     if action == "1":
