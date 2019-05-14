@@ -81,7 +81,7 @@ def ManaCalc(deck,worth):
 ###============== Main Program ==============###
 sets = []
 
-RemplirSets("sets.txt", sets)
+RemplirSets("sets/sets.txt", sets)
 
 while True:
     print("\nBienvenue dans l'index des cartes legales de Magic: The Gathering\n")
@@ -91,18 +91,24 @@ while True:
     if action == "1":
         print("\nCette fonctionnalite n'est pas encore activee!")
     if action == "2":
-        print("\n1. " + sets[0][0])
-        print("2. " + sets[1][0])
-        print("3. " + sets[2][0])
-        print("4. " + sets[3][0])
-        print("5. " + sets[4][0])
-        print("6. " + sets[5][0])
-        print("7. " + sets[6][0])
-        print("8. " + sets[7][0])
-        Deckname = input("Set? ")
+        while True:
+            print("\n1. " + sets[0][0])
+            print("2. " + sets[1][0])
+            print("3. " + sets[2][0])
+            print("4. " + sets[3][0])
+            print("5. " + sets[4][0])
+            print("6. " + sets[5][0])
+            print("7. " + sets[6][0])
+            print("8. " + sets[7][0])
+            Deckname = input("Set? ")
+            if Deckname == '8':
+                print("Cette serie n'est pas encore disponible, veuillez faire un autre choix")
+            else:
+                break
+                      
         Database = sets[int(Deckname)-1][1]
         deck = []
-        RemplirCartes((Database+".txt"), deck)
+        RemplirCartes(("sets/" +Database+ ".txt"), deck)
         print('\n1. Par numero\n2. Par rarete\n3. Par nom (Sensible a la casse)\n4. Par cout en manas\n5. Par type ')
         information = input('Comment souhaite-tu chercher ta carte?')
         if information == '1':
@@ -112,7 +118,6 @@ while True:
             card[3] = ColorTest(card)
             print("")
             print(card)
-            break
 
         elif information == '2':
             print("\n1. Common\n2. Uncommon\n3. Rare\n4. Mythic")
