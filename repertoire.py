@@ -95,6 +95,7 @@ while True:
         if action == '1':
             print("\n1. Chercher une carte par numero")
             print("2. Afficher l'ensemble des cartes de l'inventaire (Au moins une possédée")
+            print("3. Afficher les cartes manquantes à l'inventaire")
             data = input("Que dois-je chercher? ")
             if data == "1":
                 card = input("\nQuel est le numero de la carte? (série + chiffre --> AAA123) ")
@@ -127,6 +128,27 @@ while True:
                 file.close()
                 if PrintedCards == 0:
                     print("Aucune carte dans l'inventaire\n")
+
+            elif data == "3":
+                file = open("inventory/.sets.txt", "r")
+                lines = file.readlines()
+                sets = []
+                ListeSets = []
+                PrintedCards = 0
+                for i in lines:
+                    name, code = i.split(',')
+                    CardSet = open(("inventory/"+name+".txt"),"r")
+                    CardList = CardSet.readlines()
+                    for Cards in CardList:
+                        CardsClean = Cards.replace("\n","")
+                        if len(CardsClean) == 14:
+                            if int(CardsClean[-1]) == 0:
+                                print(CardsClean)
+                                PrintedCards = PrintedCards+1
+                    CardSet.close()
+                file.close()
+                if PrintedCards == 0:
+                    print("Aucune carte manquante à l'inventaire\n")
 
         elif action == '2':
             CardID = input("Quel est le numero de la carte? (série + chiffre --> AAA123) ")
