@@ -1,0 +1,261 @@
+{
+    "baseSetSize": 0,
+    "cards": [
+        {
+            "artist": "Brad Rigney",
+            "borderColor": "black",
+            "colorIdentity": [
+                "W"
+            ],
+            "colors": [
+                "W"
+            ],
+            "convertedManaCost": 4.0,
+            "flavorText": "\"Their appendages are sharper than our swords and quicker than our bows.\" —Hastric, Thunian scout",
+            "foreignData": [],
+            "frameVersion": "2003",
+            "hasFoil": true,
+            "hasNonFoil": false,
+            "isPaper": true,
+            "isPromo": true,
+            "isReprint": true,
+            "isStarter": true,
+            "layout": "normal",
+            "legalities": {
+                "commander": "Legal",
+                "duel": "Legal",
+                "legacy": "Legal",
+                "modern": "Legal",
+                "vintage": "Legal"
+            },
+            "manaCost": "{3}{W}",
+            "mtgstocksId": 21669,
+            "name": "Bonescythe Sliver",
+            "number": "1",
+            "power": "2",
+            "prices": {
+                "paper": {},
+                "paperFoil": {
+                    "2019-04-21": 3.04,
+                    "2019-04-28": 3.11,
+                    "2019-05-05": 3.43,
+                    "2019-05-12": 3.26,
+                    "2019-05-19": 3.45,
+                    "2019-05-26": 12.48,
+                    "2019-06-02": 17.99,
+                    "2019-06-09": 11.26,
+                    "2019-06-16": 11.99,
+                    "2019-06-23": 10.89,
+                    "2019-06-30": 11.44,
+                    "2019-07-07": 11.44,
+                    "2019-07-14": 10.85
+                }
+            },
+            "printings": [
+                "M14",
+                "PDP13"
+            ],
+            "rarity": "rare",
+            "rulings": [
+                {
+                    "date": "2013-07-01",
+                    "text": "If Bonescythe Sliver leaves the battlefield after other Sliver creatures you control have dealt first-strike damage but before regular combat damage, those Slivers won’t deal regular combat damage (unless they still have double strike for some other reason)."
+                },
+                {
+                    "date": "2013-07-01",
+                    "text": "If you change the creature type of a Sliver you control so it’s no longer a Sliver, it will no longer be affected by its own ability. Its ability will continue to affect other Sliver creatures you control."
+                },
+                {
+                    "date": "2013-07-01",
+                    "text": "Abilities that Slivers grant, as well as power/toughness boosts, are cumulative. However, for some abilities, like flying, having more than one instance of the ability doesn’t provide any additional benefit."
+                }
+            ],
+            "scryfallId": "73419af6-7df0-48d5-b6f4-e621c75a1acd",
+            "scryfallIllustrationId": "12e2808c-baf7-4833-8ca0-3f2feb36ba52",
+            "scryfallOracleId": "1d95ad32-768f-40a1-a461-e0562326b2b7",
+            "subtypes": [
+                "Sliver"
+            ],
+            "supertypes": [],
+            "tcgplayerProductId": 71415,
+            "text": "Sliver creatures you control have double strike. (They deal both first-strike and regular combat damage.)",
+            "toughness": "2",
+            "type": "Creature — Sliver",
+            "types": [
+                "Creature"
+            ],
+            "uuid": "1241f639-316f-5afe-af2a-a3e9464726dc"
+        },
+        {
+            "artist": "Matt Stewart",
+            "borderColor": "black",
+            "colorIdentity": [
+                "R"
+            ],
+            "colors": [
+                "R"
+            ],
+            "convertedManaCost": 4.0,
+            "flavorText": "Ogres are driven by passion, rage, and another ogre standing behind them with a whip.",
+            "foreignData": [],
+            "frameVersion": "2003",
+            "hasFoil": true,
+            "hasNonFoil": false,
+            "isPaper": true,
+            "isPromo": true,
+            "isReprint": true,
+            "isStarter": true,
+            "layout": "normal",
+            "legalities": {
+                "commander": "Legal",
+                "duel": "Legal",
+                "legacy": "Legal",
+                "modern": "Legal",
+                "vintage": "Legal"
+            },
+            "manaCost": "{2}{R}{R}",
+            "mtgstocksId": 22088,
+            "name": "Ogre Battledriver",
+            "number": "2",
+            "power": "3",
+            "prices": {
+                "paper": {},
+                "paperFoil": {
+                    "2019-04-21": 0.83,
+                    "2019-04-28": 0.83,
+                    "2019-05-05": 0.83,
+                    "2019-05-12": 0.81,
+                    "2019-05-19": 0.82,
+                    "2019-05-26": 0.83,
+                    "2019-06-02": 0.89,
+                    "2019-06-09": 0.91,
+                    "2019-06-16": 0.93,
+                    "2019-06-23": 0.93,
+                    "2019-06-30": 0.92,
+                    "2019-07-07": 0.95,
+                    "2019-07-14": 0.92
+                }
+            },
+            "printings": [
+                "DDN",
+                "M14",
+                "PDP13"
+            ],
+            "rarity": "rare",
+            "rulings": [],
+            "scryfallId": "743195b7-bfc6-4071-a713-cb0c0d54798d",
+            "scryfallIllustrationId": "9026a3af-f7ee-477a-a1fb-43333d668dc8",
+            "scryfallOracleId": "c834c4b5-c122-4c63-81c7-884ca4c0dc3b",
+            "subtypes": [
+                "Ogre",
+                "Warrior"
+            ],
+            "supertypes": [],
+            "tcgplayerProductId": 72353,
+            "text": "Whenever another creature enters the battlefield under your control, that creature gets +2/+0 and gains haste until end of turn. (It can attack and {T} this turn.)",
+            "toughness": "3",
+            "type": "Creature — Ogre Warrior",
+            "types": [
+                "Creature"
+            ],
+            "uuid": "84d1d310-2c91-5d87-a966-0187f53daf31"
+        },
+        {
+            "artist": "Dan Scott",
+            "borderColor": "black",
+            "colorIdentity": [
+                "G"
+            ],
+            "colors": [
+                "G"
+            ],
+            "convertedManaCost": 2.0,
+            "flavorText": "In nature, not a single bone or scrap of flesh goes to waste.",
+            "foreignData": [],
+            "frameVersion": "2003",
+            "hasFoil": true,
+            "hasNonFoil": false,
+            "isPaper": true,
+            "isPromo": true,
+            "isReprint": true,
+            "isStarter": true,
+            "layout": "normal",
+            "legalities": {
+                "commander": "Legal",
+                "duel": "Legal",
+                "legacy": "Legal",
+                "modern": "Legal",
+                "vintage": "Legal"
+            },
+            "manaCost": "{1}{G}",
+            "mtgstocksId": 21322,
+            "name": "Scavenging Ooze",
+            "number": "3",
+            "power": "2",
+            "prices": {
+                "paper": {},
+                "paperFoil": {
+                    "2019-04-21": 5.0,
+                    "2019-04-28": 5.08,
+                    "2019-05-05": 5.13,
+                    "2019-05-12": 5.19,
+                    "2019-05-19": 5.19,
+                    "2019-05-26": 5.13,
+                    "2019-06-02": 5.09,
+                    "2019-06-09": 5.2,
+                    "2019-06-16": 5.32,
+                    "2019-06-23": 5.25,
+                    "2019-06-30": 5.17,
+                    "2019-07-07": 5.14,
+                    "2019-07-14": 5.13
+                }
+            },
+            "printings": [
+                "C16",
+                "CM2",
+                "CMD",
+                "M14",
+                "MM3",
+                "PDP13",
+                "PRM"
+            ],
+            "rarity": "rare",
+            "rulings": [
+                {
+                    "date": "2017-03-14",
+                    "text": "If the target card is an illegal target when the ability tries to resolve, it won’t resolve and none of its effects will happen. No +1/+1 counter will be put on Scavenging Ooze and you won’t gain life. Notably, this means that if you activate Scavenging Ooze’s ability multiple times targeting the same creature card, only the first instance of the ability to resolve will have any effect."
+                }
+            ],
+            "scryfallId": "38eb6807-caed-46fe-8c44-0071158537bc",
+            "scryfallIllustrationId": "626d0c19-9df3-4c91-a1a9-fddaa1db75aa",
+            "scryfallOracleId": "1ff25f67-36a7-4cfa-a2b1-2135b5b6fb67",
+            "subtypes": [
+                "Ooze"
+            ],
+            "supertypes": [],
+            "tcgplayerProductId": 70712,
+            "text": "{G}: Exile target card from a graveyard. If it was a creature card, put a +1/+1 counter on Scavenging Ooze and you gain 1 life.",
+            "toughness": "2",
+            "type": "Creature — Ooze",
+            "types": [
+                "Creature"
+            ],
+            "uuid": "74dd782b-f48a-5477-adab-46466f4b326d"
+        }
+    ],
+    "code": "PDP13",
+    "isFoilOnly": false,
+    "isOnlineOnly": false,
+    "keyruneCode": "M14",
+    "meta": {
+        "date": "2019-07-14",
+        "pricesDate": "2019-07-14",
+        "version": "4.4.2-rebuild.3"
+    },
+    "name": "Duels of the Planeswalkers Promos 2013",
+    "releaseDate": "2013-01-01",
+    "tokens": [],
+    "totalSetSize": 3,
+    "translations": {},
+    "type": "promo"
+}

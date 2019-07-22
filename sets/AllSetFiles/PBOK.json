@@ -1,0 +1,103 @@
+{
+    "baseSetSize": 0,
+    "cards": [
+        {
+            "artist": "Aleksi Briclot",
+            "borderColor": "black",
+            "colorIdentity": [
+                "U"
+            ],
+            "colors": [
+                "U"
+            ],
+            "convertedManaCost": 3.0,
+            "foreignData": [],
+            "frameVersion": "2003",
+            "hasFoil": false,
+            "hasNonFoil": true,
+            "isPaper": true,
+            "isPromo": true,
+            "isReprint": true,
+            "isStarter": true,
+            "layout": "normal",
+            "legalities": {
+                "commander": "Legal",
+                "duel": "Legal",
+                "legacy": "Legal",
+                "modern": "Legal",
+                "vintage": "Legal"
+            },
+            "loyalty": "3",
+            "manaCost": "{1}{U}{U}",
+            "mtgstocksId": 20821,
+            "name": "Jace Beleren",
+            "number": "1",
+            "prices": {
+                "paper": {
+                    "2019-04-14": 89.64,
+                    "2019-04-21": 89.49,
+                    "2019-04-28": 88.24,
+                    "2019-05-05": 89.74,
+                    "2019-05-12": 87.7,
+                    "2019-05-19": 88.24,
+                    "2019-05-26": 88.24,
+                    "2019-06-02": 89.49,
+                    "2019-06-09": 88.24,
+                    "2019-06-16": 89.74,
+                    "2019-06-23": 89.98,
+                    "2019-06-30": 89.49,
+                    "2019-07-07": 89.74
+                },
+                "paperFoil": {}
+            },
+            "printings": [
+                "DD2",
+                "JVC",
+                "LRW",
+                "M10",
+                "M11",
+                "PBOK",
+                "PRM",
+                "SS1"
+            ],
+            "rarity": "mythic",
+            "rulings": [
+                {
+                    "date": "2009-10-01",
+                    "text": "If there are fewer than twenty cards in the targeted player’s library, that player puts all the cards from their library into their graveyard."
+                }
+            ],
+            "scryfallId": "39a89c44-1aa7-4f2e-909b-d821ec2b7948",
+            "scryfallIllustrationId": "29188e1f-bd20-4041-b0aa-00a8d1853364",
+            "scryfallOracleId": "cc2b6e58-2d6f-495e-95f3-9496105c4cba",
+            "subtypes": [
+                "Jace"
+            ],
+            "supertypes": [
+                "Legendary"
+            ],
+            "tcgplayerProductId": 38248,
+            "text": "[+2]: Each player draws a card.\n[−1]: Target player draws a card.\n[−10]: Target player puts the top twenty cards of their library into their graveyard.",
+            "type": "Legendary Planeswalker — Jace",
+            "types": [
+                "Planeswalker"
+            ],
+            "uuid": "3b17073e-d0e0-5458-abb3-a102b1faf2f7"
+        }
+    ],
+    "code": "PBOK",
+    "isFoilOnly": false,
+    "isOnlineOnly": false,
+    "keyruneCode": "PBOOK",
+    "meta": {
+        "date": "2019-07-14",
+        "pricesDate": "2019-07-14",
+        "version": "4.4.2-rebuild.3"
+    },
+    "name": "Miscellaneous Book Promos",
+    "releaseDate": "2009-01-27",
+    "tokens": [],
+    "totalSetSize": 1,
+    "translations": {},
+    "type": "promo"
+}
