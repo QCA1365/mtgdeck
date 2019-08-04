@@ -1,6 +1,8 @@
 import json
 import os
 
+
+#To be improved and debugged. I think that manaCost(cards) doesn't send all the cards in there. - Esteban Carrillo 04082019@0227Z
 '''def mana_duplicates(manaCost):
 	for x in range(len(manaCost)):
 		try:
