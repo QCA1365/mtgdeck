@@ -1,23 +1,4 @@
 import json
-import os
-
-
-#To be improved and debugged. I think that manaCost(cards) doesn't send all the cards in there. - Esteban Carrillo 04082019@0227Z
-'''def mana_duplicates(manaCost):
-	for x in range(len(manaCost)):
-		try:
-			manaCost[x][1] == manaCost[x+1][1]
-			if manaCost[x][1] == manaCost[x+1][1]:
-				mana_number = (str(int(manaCost[x][0]) + int(manaCost[x+1][0])))
-				del manaCost[x+1]
-				manaCost[x] = mana_number + manaCost[x][1]
-				if manaCost[x][1] == manaCost[x+1][1]:
-					mana_number = (str(int(manaCost[x][0]) + int(manaCost[x+1][0])))
-					del manaCost[x+1]
-					manaCost[x] = mana_number + manaCost[x][1]
-		except IndexError:
-			pass
-		return(manaCost)'''
 
 def rarity(cards):
 	if cards["rarity"] == "common":
@@ -38,10 +19,20 @@ def manaCost(cards):
 		for x in range(0,len(cleaner_manas)):
 			if cleaner_manas[x].isdigit() == False and cleaner_manas[x] != "X":
 				cleaner_manas[x] = "1" + cleaner_manas[x]
-				print(cleaner_manas[x])
-			#color_count = mana_duplicates(cleaner_manas)
-#		return color_count
-		return cleaner_manas
+		for x in range(len(cleaner_manas)):
+			try:
+				cleaner_manas[x][1] == cleaner_manas[x+1][1]
+				if cleaner_manas[x][1] == cleaner_manas[x+1][1]:
+					mana_number = (str(int(cleaner_manas[x][0]) + int(cleaner_manas[x+1][0])))
+					del cleaner_manas[x+1]
+					cleaner_manas[x] = mana_number + cleaner_manas[x][1]
+					if cleaner_manas[x][1] == cleaner_manas[x+1][1]:
+						mana_number = (str(int(cleaner_manas[x][0]) + int(cleaner_manas[x+1][0])))
+						del cleaner_manas[x+1]
+						cleaner_manas[x] = mana_number + cleaner_manas[x][1]
+			except IndexError:
+				pass
+		return(cleaner_manas)
 	except KeyError:
 		return "0"
 
