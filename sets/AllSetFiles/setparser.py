@@ -1,5 +1,6 @@
 import json
 
+
 def rarity(cards):
 	if cards["rarity"] == "common":
 		return "C"
