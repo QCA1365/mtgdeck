@@ -1,4 +1,10 @@
+# Beginning of imports
+
+import os
+import glob
 import json
+
+# End of imports
 
 
 def rarity(cards):
@@ -33,44 +39,59 @@ def manaCost(cards):
 						cleaner_manas[x] = mana_number + cleaner_manas[x][1]
 			except IndexError:
 				pass
-		return(cleaner_manas)
+		manaValue = ""
+		for item in cleaner_manas:
+			manaValue = manaValue + item + " "
+		manaValue = manaValue[:len(manaValue)-1]
+		return(manaValue)
 	except KeyError:
 		return "0"
 
-card_list = []
-card_set = input("Quel set? ").upper() + ".json"
-with open(card_set) as f:
-    data = json.load(f)
+os.chdir("/usr/share/powder/mtgdeck/sets/AllSetFiles")
+files = glob.glob("*.json")
+for mtgSet in files:
+	with open("../"+mtgSet[:-5]+".txt","w+") as SetFile:
+		with open(mtgSet) as f:
+		    data = json.load(f)
 
-for cards in data["cards"]:
-	card = []
-	try:
-		card.append(int(cards["number"]))
-	except ValueError:
-		card.append(cards["number"])
-	card.append(rarity(cards))
-	card.append(cards["name"])
-	card.append(manaCost(cards))
-	card.append(cards["type"])
-	try:
-		card.append((cards["power"] + "/" + cards["toughness"]))
-	except KeyError:
-		pass
-	card_list.append(card)
-	if type(card[0]) != int:
-		card_list.remove(card)
-	try:
-		if cards["isOnlineOnly"] == True:
-			card_list.remove(card)
-	except KeyError:
-		pass
-card_list.sort()
+		card_list = []
+		for cards in data["cards"]:
+			card = []
+			try:
+				card.append(int(cards["number"]))
+			except ValueError:
+				card.append(cards["number"])
+			card.append(rarity(cards))
+			card.append(cards["name"])
+			card.append(manaCost(cards))
+			card.append(cards["type"])
+			try:
+				card.append((cards["power"] + "/" + cards["toughness"]))
+			except KeyError:
+				pass
+			card_list.append(card)
+			if type(card[0]) != int:
+				card_list.remove(card)
+			try:
+				if cards["isOnlineOnly"] == True:
+					card_list.remove(card)
+			except KeyError:
+				pass
+			except ValueError:
+				pass
+		card_list.sort()
 
-for raw_card in card_list:
-	raw_card[0] = str(raw_card[0])
-	if len(raw_card[0]) == 1:
-		raw_card[0] = "00" + raw_card[0]
-	elif len(raw_card[0]) == 2:
-		raw_card[0] = "0" + raw_card[0]
-	formatted_card = raw_card
-	print(formatted_card)
+		for raw_card in card_list:
+			raw_card[0] = str(raw_card[0])
+			if len(raw_card[0]) == 1:
+				raw_card[0] = "00" + raw_card[0]
+			elif len(raw_card[0]) == 2:
+				raw_card[0] = "0" + raw_card[0]
+			formatted_card = raw_card
+			card = ""
+			for element in formatted_card:
+				card = card + str(element) + ","
+			card = card[:len(card)-1]
+			SetFile.write(card + "\n")
+			print(card + " ---> " + mtgSet[:-5])
+	SetFile.close()
