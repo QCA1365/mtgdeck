@@ -6,6 +6,18 @@ import json
 
 # End of imports
 
+def SetFileCreator():
+	setList = []
+	with open("List/SetList.json","r") as SetData:
+		data = json.load(SetData)
+	for Set in data:
+		CompleteSet = Set["name"] + "," + Set["code"]
+		setList.append(CompleteSet)
+	SetData.close()
+	with open("../TXT-SetFiles/sets.txt", "w+") as AllSetsFile:	'''sets.txt is required by repertoire.py 09082019@0046Z Esteban Carrillo -- TO BE ADDED IN DOCUMENTATION'''
+		for setInfo in setList:
+			AllSetsFile.write(setInfo + "\n")
+		AllSetsFile.close()	
 
 def rarity(cards):
 	if cards["rarity"] == "common":
@@ -47,10 +59,12 @@ def manaCost(cards):
 	except KeyError:
 		return "0"
 
-os.chdir("/usr/share/powder/mtgdeck/sets/AllSetFiles")
+os.chdir("JSON-SetFiles/")
 files = glob.glob("*.json")
+#print(files)					#In case of debugging, this line will print all the sets in the order where this program goes through them 09082019@0136Z Esteban Carrillo
+SetFileCreator()
 for mtgSet in files:
-	with open("../"+mtgSet[:-5]+".txt","w+") as SetFile:
+	with open("../TXT-SetFiles/"+mtgSet[:-5]+".txt","w+") as SetFile:
 		with open(mtgSet) as f:
 		    data = json.load(f)
 
@@ -93,5 +107,6 @@ for mtgSet in files:
 				card = card + str(element) + ","
 			card = card[:len(card)-1]
 			SetFile.write(card + "\n")
-			print(card + " ---> " + mtgSet[:-5])
 	SetFile.close()
+
+print("setparser.py is done")
