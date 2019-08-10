@@ -14,7 +14,7 @@ def SetFileCreator():
 		CompleteSet = Set["name"] + "," + Set["code"]
 		setList.append(CompleteSet)
 	SetData.close()
-	with open("../TXT-SetFiles/sets.txt", "w+") as AllSetsFile:	'''sets.txt is required by repertoire.py 09082019@0046Z Esteban Carrillo -- TO BE ADDED IN DOCUMENTATION'''
+	with open("../TXT-SetFiles/sets.txt", "w+") as AllSetsFile:	#sets.txt is required by repertoire.py 09082019@0046Z Esteban Carrillo -- TO BE ADDED IN DOCUMENTATION
 		for setInfo in setList:
 			AllSetsFile.write(setInfo + "\n")
 		AllSetsFile.close()	
@@ -59,7 +59,7 @@ def manaCost(cards):
 	except KeyError:
 		return "0"
 
-os.chdir("JSON-SetFiles/")
+os.chdir("sets/JSON-SetFiles/")				#This line adapts to repertoire.py's place which would be in ../ from this file
 files = glob.glob("*.json")
 #print(files)					#In case of debugging, this line will print all the sets in the order where this program goes through them 09082019@0136Z Esteban Carrillo
 SetFileCreator()
@@ -104,7 +104,7 @@ for mtgSet in files:
 			formatted_card = raw_card
 			card = ""
 			for element in formatted_card:
-				card = card + str(element) + ","
+				card = card + str(element) + '"'
 			card = card[:len(card)-1]
 			SetFile.write(card + "\n")
 	SetFile.close()

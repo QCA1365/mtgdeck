@@ -5,12 +5,14 @@ File is still under developement, suggestions are more than welcome
 
 TO DO -->
 
-[ ] Formatting output of setparser.py
-[ ] Coding auto setfile creator
+[X] Formatting output of setparser.py
+[X] Coding auto setfile creator
 [ ] Modifying main program mana cost converter (Obsolete with setparser.py)
 [ ] Render more efficient inventory settings and completing
+[ ] Translations!
 [ ] Debug main program
 [ ] Release V1.0!
+[ ] Auto updates via this: https://mtgjson.com/json/version.json
 [ ] To be continued...
 
 Discord Dev Server: https://discord.gg/9PsDYqc
