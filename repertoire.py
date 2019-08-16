@@ -1,4 +1,5 @@
 import os
+import platform
 
 def RemplirSets(filename, ListeSets):
     file = open(filename, "r")
@@ -80,10 +81,18 @@ def ManaCalc(deck,worth):
                 print(card)
 
 ###============== Main Program ==============###
-os.system("python3 sets/setparser.py")
+sys = platform.system()
+if sys == "Linux":
+    os.system("python3 sets/setparser.py")
+elif sys == "Windows":
+    os.system("sets/setparser.py")
 
 sets = []
-RemplirSets("sets/TXT-SetFiles/sets.txt", sets)
+
+if sys == 'Linux':
+    RemplirSets("sets/TXT-SetFiles/sets.txt", sets)
+elif sys == "Windows":
+    RemplirSets("sets/TXT-SetFiles/sets.txt", sets)
 
 while True:
     print("\nBienvenue dans l'index des cartes legales de Magic: The Gathering\n")
@@ -102,19 +111,28 @@ while True:
                 card = input("\nQuel est le numero de la carte? (série + chiffre --> AAA123) ")
                 CardSet = card[:3]
                 CardNumber = card[3:]
-                file = open(("inventory/"+CardSet.upper()+".txt"), "r")
+                if sys == "Linux":
+                    file = open(("inventory/"+CardSet.upper()+".txt"), "r")
+                elif sys == "Windows":
+                    file = open(("inventory/"+CardSet.upper()+".txt"), "r")
                 lines = file.readlines()
                 print(lines[int(CardNumber)-1])
 
             elif data == "2":
-                file = open("inventory/.sets.txt", "r")
+                if sys == "Linux":
+                    file = open("inventory/.sets.txt", "r")
+                elif sys == "Windows":
+                    file = open("inventory/.sets.txt", "r")
                 lines = file.readlines()
                 sets = []
                 ListeSets = []
                 PrintedCards = 0
                 for i in lines:
                     name, code = i.split(',')
-                    CardSet = open(("inventory/"+name+".txt"),"r")
+                    if sys == "Linux":
+                        CardSet = open(("inventory/"+name+".txt"),"r")
+                    elif sys == "Windows":
+                        CardSet = open(("inventory/"+name+".txt"),"r")
                     CardList = CardSet.readlines()
                     for Cards in CardList:
                         CardsClean = Cards.replace("\n","")
@@ -133,7 +151,10 @@ while True:
         elif action == '2':
             CardID = input("Quel est le numero de la carte? (série + chiffre --> AAA123) ")
             CardSet = CardID[:3]
-            file = open("inventory/"+CardSet+".txt","r")
+            if sys == "Linux":
+                file = open("inventory/"+CardSet+".txt","r")
+            elif sys == "Windows":
+                file = open("inventory/"+CardSet+".txt","r")
             AllRawCards = file.readlines()
             AllCards = []
             for RawCard in AllRawCards:
@@ -158,7 +179,10 @@ while True:
                     print("Cette entrée n'est pas valide, veuillez réessayer")
             
             AllCards[int(CardID[-3:])-1] = card
-            file = open("inventory/"+CardSet+".txt","w+")
+            if sys == "Linux":
+                file = open("inventory/"+CardSet+".txt","w+")
+            elif sys == "Windows":
+                file = open("inventory/"+CardSet+".txt","w+")
             for x in AllCards:
                 FormattedCard =  (x[0] + " ---> " + str(x[1]) + "\n")
                 file.write(FormattedCard)
@@ -170,7 +194,10 @@ while True:
             print(sets[x][0] + " , " + sets[x][1])
         Deckname = input("Set? ")
         deck = []
-        RemplirCartes(("sets/TXT-SetFiles/" +Deckname.upper()+ ".txt"), deck)
+        if sys == "Linux":
+            RemplirCartes(("sets/TXT-SetFiles/" +Deckname.upper()+ ".txt"), deck)
+        elif sys == "Windows":
+            RemplirCartes(("sets/TXT-SetFiles/" +Deckname.upper()+ ".txt"), deck)
         print('\n1. Par numero\n2. Par rarete\n3. Par nom (Sensible a la casse)\n4. Par cout en manas\n5. Par type ')
         information = input('Comment souhaite-tu chercher ta carte? ')
         if information == '1':

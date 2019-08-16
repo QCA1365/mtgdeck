@@ -1,23 +1,36 @@
 # Beginning of imports
 
+import platform
 import os
 import glob
 import json
 
 # End of imports
 
-def SetFileCreator():
+sys = platform.system()
+print(os.getcwd())
+
+def SetFileCreator(sys):
 	setList = []
-	with open("List/SetList.json","r") as SetData:
-		data = json.load(SetData)
+	if sys == "Linux":
+		with open("List/SetList.json","r") as SetData:
+			data = json.load(SetData)
+	elif sys == "Windows":
+		with open("List/SetList.json","r") as SetData:
+			data = json.load(SetData)
 	for Set in data:
 		CompleteSet = Set["name"] + "," + Set["code"]
 		setList.append(CompleteSet)
 	SetData.close()
-	with open("../TXT-SetFiles/sets.txt", "w+") as AllSetsFile:	#sets.txt is required by repertoire.py 09082019@0046Z Esteban Carrillo -- TO BE ADDED IN DOCUMENTATION
-		for setInfo in setList:
-			AllSetsFile.write(setInfo + "\n")
-		AllSetsFile.close()	
+	if sys == "Linux":
+		with open("../TXT-SetFiles/sets.txt", "w+") as AllSetsFile:	#sets.txt is required by repertoire.py 09082019@0046Z Esteban Carrillo -- TO BE ADDED IN DOCUMENTATION
+			for setInfo in setList:
+				AllSetsFile.write(setInfo + "\n")
+	elif sys == "Windows":
+		with open("../TXT-SetFiles/sets.txt", "w+") as AllSetsFile:	#sets.txt is required by repertoire.py 09082019@0046Z Esteban Carrillo -- TO BE ADDED IN DOCUMENTATION
+			for setInfo in setList:
+				AllSetsFile.write(setInfo + "\n")
+	AllSetsFile.close()	
 
 def rarity(cards):
 	if cards["rarity"] == "common":
@@ -59,13 +72,21 @@ def manaCost(cards):
 	except KeyError:
 		return "0"
 
-os.chdir("sets/JSON-SetFiles/")				#This line adapts to repertoire.py's place which would be in ../ from this file
+if sys == "Linux":
+	directory = "sets/JSON-SetFiles/"
+elif sys == "Windows":
+	directory = ("JSON-SetFiles")
+os.chdir(directory)				#This line adapts to repertoire.py's place which would be in ../ from this file
 files = glob.glob("*.json")
 #print(files)					#In case of debugging, this line will print all the sets in the order where this program goes through them 09082019@0136Z Esteban Carrillo
-SetFileCreator()
+SetFileCreator(sys)
 for mtgSet in files:
-	with open("../TXT-SetFiles/"+mtgSet[:-5]+".txt","w+") as SetFile:
-		with open(mtgSet) as f:
+	if sys == "Linux":
+		mtgSetFile = ("../TXT-SetFiles/"+mtgSet[:-5]+".txt")
+	elif sys == "Windows":
+		mtgSetFile = ("../TXT-SetFiles/"+mtgSet[:-5]+".txt")
+	with open(mtgSetFile,"w+", encoding='UTF-8' ) as SetFile:
+		with open(mtgSet, encoding='UTF-8' ) as f:
 		    data = json.load(f)
 
 		card_list = []
