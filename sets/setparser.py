@@ -7,10 +7,14 @@ import json
 
 # End of imports
 
+<<<<<<< HEAD
 sys = platform.system()
 print(os.getcwd())
 
 def SetFileCreator(sys):
+=======
+def SetFileCreator(files):
+>>>>>>> origin/devel
 	setList = []
 	if sys == "Linux":
 		with open("List/SetList.json","r") as SetData:
@@ -19,9 +23,10 @@ def SetFileCreator(sys):
 		with open("List/SetList.json","r") as SetData:
 			data = json.load(SetData)
 	for Set in data:
-		CompleteSet = Set["name"] + "," + Set["code"]
+		CompleteSet = Set["name"] + "," + Set["code"] + "," + str(Set["totalSetSize"])
 		setList.append(CompleteSet)
 	SetData.close()
+<<<<<<< HEAD
 	if sys == "Linux":
 		with open("../TXT-SetFiles/sets.txt", "w+") as AllSetsFile:	#sets.txt is required by repertoire.py 09082019@0046Z Esteban Carrillo -- TO BE ADDED IN DOCUMENTATION
 			for setInfo in setList:
@@ -31,6 +36,12 @@ def SetFileCreator(sys):
 			for setInfo in setList:
 				AllSetsFile.write(setInfo + "\n")
 	AllSetsFile.close()	
+=======
+	with open("../TXT-SetFiles/sets.txt", "w+") as AllSetsFile:	#sets/TXT-SetFiles/sets.txt is required by repertoire.py 09082019@0046Z Esteban Carrillo -- TO BE ADDED IN DOCUMENTATION
+		for setInfo in setList:
+			AllSetsFile.write(setInfo + "\n")
+		AllSetsFile.close()	
+>>>>>>> origin/devel
 
 def rarity(cards):
 	if cards["rarity"] == "common":
@@ -72,6 +83,7 @@ def manaCost(cards):
 	except KeyError:
 		return "0"
 
+<<<<<<< HEAD
 if sys == "Linux":
 	directory = "sets/JSON-SetFiles/"
 elif sys == "Windows":
@@ -80,6 +92,12 @@ os.chdir(directory)				#This line adapts to repertoire.py's place which would be
 files = glob.glob("*.json")
 #print(files)					#In case of debugging, this line will print all the sets in the order where this program goes through them 09082019@0136Z Esteban Carrillo
 SetFileCreator(sys)
+=======
+os.chdir("sets/JSON-SetFiles/")				#This line adapts to repertoire.py's place which should be in ../ from this file
+files = glob.glob("*.json")
+#print(files)					#In case of debugging, this line will print all the sets in the order where this program goes through them 09082019@0136Z Esteban Carrillo
+SetFileCreator(files)
+>>>>>>> origin/devel
 for mtgSet in files:
 	if sys == "Linux":
 		mtgSetFile = ("../TXT-SetFiles/"+mtgSet[:-5]+".txt")
@@ -107,13 +125,6 @@ for mtgSet in files:
 			card_list.append(card)
 			if type(card[0]) != int:
 				card_list.remove(card)
-			try:
-				if cards["isOnlineOnly"] == True:
-					card_list.remove(card)
-			except KeyError:
-				pass
-			except ValueError:
-				pass
 		card_list.sort()
 
 		for raw_card in card_list:

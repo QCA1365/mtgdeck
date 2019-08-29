@@ -1,12 +1,23 @@
 import os
 import platform
+<<<<<<< HEAD
+=======
+
+sys = platform.system()
+if sys == "Linux":
+    os.system("python3 sets/setparser.py")
+    os.system("python3 inventory/maker.py")
+elif sys == "Windows":
+    os.system("sets/setparser.py")
+    os.system("inventory/maker.py")
+>>>>>>> origin/devel
 
 def RemplirSets(filename, ListeSets):
     file = open(filename, "r")
     lines = file.readlines()
     sets = []
     for i in lines:
-        name, code = i.split(',')
+        name, code, baseSetSize = i.split(',')
         sets.append(name)
         sets.append(code.replace("\n", ""))
         ListeSets.append(sets)
@@ -82,10 +93,14 @@ def ManaCalc(deck,worth):
 
 ###============== Main Program ==============###
 sys = platform.system()
+<<<<<<< HEAD
 if sys == "Linux":
     os.system("python3 sets/setparser.py")
 elif sys == "Windows":
     os.system("sets/setparser.py")
+=======
+sets = []
+>>>>>>> origin/devel
 
 sets = []
 
@@ -111,6 +126,7 @@ while True:
                 card = input("\nQuel est le numero de la carte? (série + chiffre --> AAA123) ")
                 CardSet = card[:3]
                 CardNumber = card[3:]
+<<<<<<< HEAD
                 if sys == "Linux":
                     file = open(("inventory/"+CardSet.upper()+".txt"), "r")
                 elif sys == "Windows":
@@ -123,26 +139,43 @@ while True:
                     file = open("inventory/.sets.txt", "r")
                 elif sys == "Windows":
                     file = open("inventory/.sets.txt", "r")
+=======
+                try:
+                    if sys == "Linux":
+                        file = open(("inventory/"+CardSet.upper()+".txt"), "r")
+                    elif sys == "Windows":
+                        file = open(("inventory/"+CardSet.upper()), "r")
+                    lines = file.readlines()
+                    print(lines[int(CardNumber)-1])
+
+                except FileNotFoundError:
+                    print("Cette carte n'est pas valide, veuillez ressayer")
+
+            elif data == "2":
+                file = open("sets/TXT-SetFiles/sets.txt", "r")
+>>>>>>> origin/devel
                 lines = file.readlines()
                 sets = []
                 ListeSets = []
                 PrintedCards = 0
                 for i in lines:
+<<<<<<< HEAD
                     name, code = i.split(',')
                     if sys == "Linux":
                         CardSet = open(("inventory/"+name+".txt"),"r")
                     elif sys == "Windows":
                         CardSet = open(("inventory/"+name+".txt"),"r")
+=======
+                    name, code, baseSetSize = i.split(',')
+                    CardSet = open(("inventory/"+code+".txt"),"r")
+>>>>>>> origin/devel
                     CardList = CardSet.readlines()
                     for Cards in CardList:
                         CardsClean = Cards.replace("\n","")
-                        if len(CardsClean) == 14:
-                            if int(CardsClean[13:]) >= 1:
-                                print(CardsClean)
-                                PrintedCards = PrintedCards+1
-                        elif len(CardsClean) >= 15:
-                            print(CardsClean)
-                            PrintedCards = PrintedCards+1
+                        CardsSplit = CardsClean.split(' ---> ')
+                        if int(CardsSplit[1]) > 0:
+                           print(CardsClean)
+                           PrintedCards = PrintedCards+1
                     CardSet.close()
                 file.close()
                 if PrintedCards == 0:
@@ -151,6 +184,7 @@ while True:
         elif action == '2':
             CardID = input("Quel est le numero de la carte? (série + chiffre --> AAA123) ")
             CardSet = CardID[:3]
+<<<<<<< HEAD
             if sys == "Linux":
                 file = open("inventory/"+CardSet+".txt","r")
             elif sys == "Windows":
@@ -187,6 +221,45 @@ while True:
                 FormattedCard =  (x[0] + " ---> " + str(x[1]) + "\n")
                 file.write(FormattedCard)
             file.close()
+=======
+            try:
+                file = open("inventory/"+CardSet+".txt","r")
+                AllRawCards = file.readlines()
+                AllCards = []
+                for RawCard in AllRawCards:
+                    WholeCards = []
+                    WholeCards = RawCard.replace("\n","").split(" ---> ")
+                    AllCards.append(WholeCards)
+                file.close()
+                card = AllCards[int(CardID[-3:])-1]
+                print("Ceci est ta carte:")
+                print(card)
+                while True:
+                    confirmation = input("Est-ce bien ta carte? (y/n) ")
+                    if confirmation == "y":
+                        QtyToAdd = int(input("Combien à ajouter / retirer? (Pour retirer, ajouter un moins devant) "))
+                        QtyInInventory = int(card[1])
+                        NewQty = QtyToAdd + QtyInInventory
+                        card[1] = NewQty
+                        break
+                    elif confirmation == "n":
+                        break
+                    else:
+                        print("Cette entrée n'est pas valide, veuillez réessayer")
+                
+                AllCards[int(CardID[-3:])-1] = card
+                if sys == "Linux":
+                    file = open("inventory/"+CardSet+".txt","w+")
+                elif sys == "Windows":
+                    file = open("inventory/"+CardSet+".txt","w+")
+                for x in AllCards:
+                    FormattedCard =  (x[0] + " ---> " + str(x[1]) + "\n")
+                    file.write(FormattedCard)
+                file.close()
+            except FileNotFoundError:
+                print("Ce set n'existe pas, veuillez reessayer")
+                pass
+>>>>>>> origin/devel
 
     
     elif action == "2":
@@ -194,6 +267,7 @@ while True:
             print(sets[x][0] + " , " + sets[x][1])
         Deckname = input("Set? ")
         deck = []
+<<<<<<< HEAD
         if sys == "Linux":
             RemplirCartes(("sets/TXT-SetFiles/" +Deckname.upper()+ ".txt"), deck)
         elif sys == "Windows":
@@ -207,38 +281,57 @@ while True:
             card[3] = ColorTest(card)
             print("")
             print(card)
-
-        elif information == '2':
-            print("\n1. Common\n2. Uncommon\n3. Rare\n4. Mythic")
-            scarcity = input('Quelle est la rareté de la carte? ')
-            if scarcity == '1':
-                ScarcityLetter = 'C'
-            elif scarcity == '2':
-                ScarcityLetter = 'U'
-            elif scarcity == '3':
-                ScarcityLetter = 'R'
-            elif scarcity == '4':
-                ScarcityLetter = 'M'
-            for x in deck:
-                if ScarcityLetter in x[1]:
-                    card = x
-                    x[3] = ColorTest(card)
-                    print(card)
-                
-        elif information == '3':                                #Could be modified for keyword search 20190810@2109Z Esteban Carrillo
-            names = input('Quel est le nom de la carte? ')
-            card = namesearch(deck, names)
-            for x in card:
-                card = x
+=======
+        try:
+            if sys == "Linux":
+                RemplirCartes(("sets/TXT-SetFiles/" +Deckname.upper()+ ".txt"), deck)
+            elif sys == "Windows":
+                RemplirCartes(("sets/TXT-SetFiles/" +Deckname.upper()+ ".txt"), deck)
+            print('\n1. Par numero\n2. Par rarete\n3. Par nom (Sensible a la casse)\n4. Par cout en manas\n5. Par type ')
+            information = input('Comment souhaite-tu chercher ta carte? ')
+            if information == '1':
+                number = input('Quel est le numero de la carte? ')
+                card_preliminary = deck[int(number)-1]
+                card = card_preliminary
                 card[3] = ColorTest(card)
+                print("")
                 print(card)
-    
+>>>>>>> origin/devel
 
-        elif information == '4':
-            print('1. Cout brut en manas (i.e 6 manas)')
-            print('2. Cout detaille (i.e 3 + 2 Bleus)')
-            quality = input("Comment veux-tu entrer tes manas? ")
-            if quality == '1':
-                quantity = input("Combien de manas? ")
-                ManaCalc(deck,quantity)
+            elif information == '2':
+                print("\n1. Common\n2. Uncommon\n3. Rare\n4. Mythic")
+                scarcity = input('Quelle est la rareté de la carte? ')
+                if scarcity == '1':
+                    ScarcityLetter = 'C'
+                elif scarcity == '2':
+                    ScarcityLetter = 'U'
+                elif scarcity == '3':
+                    ScarcityLetter = 'R'
+                elif scarcity == '4':
+                    ScarcityLetter = 'M'
+                for x in deck:
+                    if ScarcityLetter in x[1]:
+                        card = x
+                        x[3] = ColorTest(card)
+                        print(card)
+                    
+            elif information == '3':                                #Could be modified for keyword search 20190810@2109Z Esteban Carrillo
+                names = input('Quel est le nom de la carte? ')
+                card = namesearch(deck, names)
+                for x in card:
+                    card = x
+                    card[3] = ColorTest(card)
+                    print(card)
+        
+
+            elif information == '4':
+                print('1. Cout brut en manas (i.e 6 manas)')
+                print('2. Cout detaille (i.e 3 + 2 Bleus)')
+                quality = input("Comment veux-tu entrer tes manas? ")
+                if quality == '1':
+                    quantity = input("Combien de manas? ")
+                    ManaCalc(deck,quantity)
+
+        except FileNotFoundError:
+            print("Cette carte / ce set n'existe pas, veuillez reessayer")
             
