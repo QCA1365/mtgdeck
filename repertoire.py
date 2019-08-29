@@ -1,7 +1,5 @@
 import os
 import platform
-<<<<<<< HEAD
-=======
 
 sys = platform.system()
 if sys == "Linux":
@@ -10,7 +8,6 @@ if sys == "Linux":
 elif sys == "Windows":
     os.system("sets/setparser.py")
     os.system("inventory/maker.py")
->>>>>>> origin/devel
 
 def RemplirSets(filename, ListeSets):
     file = open(filename, "r")
@@ -93,21 +90,10 @@ def ManaCalc(deck,worth):
 
 ###============== Main Program ==============###
 sys = platform.system()
-<<<<<<< HEAD
-if sys == "Linux":
-    os.system("python3 sets/setparser.py")
-elif sys == "Windows":
-    os.system("sets/setparser.py")
-=======
-sets = []
->>>>>>> origin/devel
-
 sets = []
 
-if sys == 'Linux':
-    RemplirSets("sets/TXT-SetFiles/sets.txt", sets)
-elif sys == "Windows":
-    RemplirSets("sets/TXT-SetFiles/sets.txt", sets)
+sets = []
+RemplirSets("sets/TXT-SetFiles/sets.txt", sets)
 
 while True:
     print("\nBienvenue dans l'index des cartes legales de Magic: The Gathering\n")
@@ -126,20 +112,6 @@ while True:
                 card = input("\nQuel est le numero de la carte? (série + chiffre --> AAA123) ")
                 CardSet = card[:3]
                 CardNumber = card[3:]
-<<<<<<< HEAD
-                if sys == "Linux":
-                    file = open(("inventory/"+CardSet.upper()+".txt"), "r")
-                elif sys == "Windows":
-                    file = open(("inventory/"+CardSet.upper()+".txt"), "r")
-                lines = file.readlines()
-                print(lines[int(CardNumber)-1])
-
-            elif data == "2":
-                if sys == "Linux":
-                    file = open("inventory/.sets.txt", "r")
-                elif sys == "Windows":
-                    file = open("inventory/.sets.txt", "r")
-=======
                 try:
                     if sys == "Linux":
                         file = open(("inventory/"+CardSet.upper()+".txt"), "r")
@@ -153,22 +125,13 @@ while True:
 
             elif data == "2":
                 file = open("sets/TXT-SetFiles/sets.txt", "r")
->>>>>>> origin/devel
                 lines = file.readlines()
                 sets = []
                 ListeSets = []
                 PrintedCards = 0
                 for i in lines:
-<<<<<<< HEAD
-                    name, code = i.split(',')
-                    if sys == "Linux":
-                        CardSet = open(("inventory/"+name+".txt"),"r")
-                    elif sys == "Windows":
-                        CardSet = open(("inventory/"+name+".txt"),"r")
-=======
                     name, code, baseSetSize = i.split(',')
                     CardSet = open(("inventory/"+code+".txt"),"r")
->>>>>>> origin/devel
                     CardList = CardSet.readlines()
                     for Cards in CardList:
                         CardsClean = Cards.replace("\n","")
@@ -184,44 +147,6 @@ while True:
         elif action == '2':
             CardID = input("Quel est le numero de la carte? (série + chiffre --> AAA123) ")
             CardSet = CardID[:3]
-<<<<<<< HEAD
-            if sys == "Linux":
-                file = open("inventory/"+CardSet+".txt","r")
-            elif sys == "Windows":
-                file = open("inventory/"+CardSet+".txt","r")
-            AllRawCards = file.readlines()
-            AllCards = []
-            for RawCard in AllRawCards:
-                WholeCards = []
-                WholeCards = RawCard.replace("\n","").split(" ---> ")
-                AllCards.append(WholeCards)
-            file.close()
-            card = AllCards[int(CardID[-3:])-1]
-            print("Ceci est ta carte:")
-            print(card)
-            while True:
-                confirmation = input("Est-ce bien ta carte? (y/n) ")
-                if confirmation == "y":
-                    QtyToAdd = int(input("Combien à ajouter / retirer? (Pour retirer, ajouter un moins devant) "))
-                    QtyInInventory = int(card[1])
-                    NewQty = QtyToAdd + QtyInInventory
-                    card[1] = NewQty
-                    break
-                elif confirmation == "n":
-                    break
-                else:
-                    print("Cette entrée n'est pas valide, veuillez réessayer")
-            
-            AllCards[int(CardID[-3:])-1] = card
-            if sys == "Linux":
-                file = open("inventory/"+CardSet+".txt","w+")
-            elif sys == "Windows":
-                file = open("inventory/"+CardSet+".txt","w+")
-            for x in AllCards:
-                FormattedCard =  (x[0] + " ---> " + str(x[1]) + "\n")
-                file.write(FormattedCard)
-            file.close()
-=======
             try:
                 file = open("inventory/"+CardSet+".txt","r")
                 AllRawCards = file.readlines()
@@ -259,7 +184,6 @@ while True:
             except FileNotFoundError:
                 print("Ce set n'existe pas, veuillez reessayer")
                 pass
->>>>>>> origin/devel
 
     
     elif action == "2":
@@ -267,21 +191,6 @@ while True:
             print(sets[x][0] + " , " + sets[x][1])
         Deckname = input("Set? ")
         deck = []
-<<<<<<< HEAD
-        if sys == "Linux":
-            RemplirCartes(("sets/TXT-SetFiles/" +Deckname.upper()+ ".txt"), deck)
-        elif sys == "Windows":
-            RemplirCartes(("sets/TXT-SetFiles/" +Deckname.upper()+ ".txt"), deck)
-        print('\n1. Par numero\n2. Par rarete\n3. Par nom (Sensible a la casse)\n4. Par cout en manas\n5. Par type ')
-        information = input('Comment souhaite-tu chercher ta carte? ')
-        if information == '1':
-            number = input('Quel est le numero de la carte? ')
-            card_preliminary = deck[int(number)-1]
-            card = card_preliminary
-            card[3] = ColorTest(card)
-            print("")
-            print(card)
-=======
         try:
             if sys == "Linux":
                 RemplirCartes(("sets/TXT-SetFiles/" +Deckname.upper()+ ".txt"), deck)
@@ -296,7 +205,6 @@ while True:
                 card[3] = ColorTest(card)
                 print("")
                 print(card)
->>>>>>> origin/devel
 
             elif information == '2':
                 print("\n1. Common\n2. Uncommon\n3. Rare\n4. Mythic")

@@ -8,10 +8,14 @@ import json
 # End of imports
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 sys = platform.system()
 print(os.getcwd())
 
 def SetFileCreator(sys):
+=======
+def SetFileCreator(files):
+>>>>>>> origin/devel
 =======
 def SetFileCreator(files):
 >>>>>>> origin/devel
@@ -27,6 +31,7 @@ def SetFileCreator(files):
 		setList.append(CompleteSet)
 	SetData.close()
 <<<<<<< HEAD
+<<<<<<< HEAD
 	if sys == "Linux":
 		with open("../TXT-SetFiles/sets.txt", "w+") as AllSetsFile:	#sets.txt is required by repertoire.py 09082019@0046Z Esteban Carrillo -- TO BE ADDED IN DOCUMENTATION
 			for setInfo in setList:
@@ -37,6 +42,8 @@ def SetFileCreator(files):
 				AllSetsFile.write(setInfo + "\n")
 	AllSetsFile.close()	
 =======
+=======
+>>>>>>> origin/devel
 	with open("../TXT-SetFiles/sets.txt", "w+") as AllSetsFile:	#sets/TXT-SetFiles/sets.txt is required by repertoire.py 09082019@0046Z Esteban Carrillo -- TO BE ADDED IN DOCUMENTATION
 		for setInfo in setList:
 			AllSetsFile.write(setInfo + "\n")
@@ -84,6 +91,7 @@ def manaCost(cards):
 		return "0"
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 if sys == "Linux":
 	directory = "sets/JSON-SetFiles/"
 elif sys == "Windows":
@@ -93,10 +101,15 @@ files = glob.glob("*.json")
 #print(files)					#In case of debugging, this line will print all the sets in the order where this program goes through them 09082019@0136Z Esteban Carrillo
 SetFileCreator(sys)
 =======
+=======
+>>>>>>> origin/devel
 os.chdir("sets/JSON-SetFiles/")				#This line adapts to repertoire.py's place which should be in ../ from this file
 files = glob.glob("*.json")
 #print(files)					#In case of debugging, this line will print all the sets in the order where this program goes through them 09082019@0136Z Esteban Carrillo
 SetFileCreator(files)
+<<<<<<< HEAD
+>>>>>>> origin/devel
+=======
 >>>>>>> origin/devel
 for mtgSet in files:
 	if sys == "Linux":
