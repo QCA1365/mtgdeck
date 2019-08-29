@@ -1,13 +1,15 @@
+#Beginning of imports
+
 import os
 import platform
 
+#End of imports
+
+#Beginning of stable variables
+
 sys = platform.system()
-if sys == "Linux":
-    os.system("python3 sets/setparser.py")
-    os.system("python3 inventory/maker.py")
-elif sys == "Windows":
-    os.system("sets/setparser.py")
-    os.system("inventory/maker.py")
+
+#End of stable variables
 
 def RemplirSets(filename, ListeSets):
     file = open(filename, "r")
@@ -88,10 +90,15 @@ def ManaCalc(deck,worth):
             else:
                 print(card)
 
+###============ Database Updating ============###
+
+if sys == "Linux":
+    os.system("python3 updates/DatabaseVersion.py")
+if sys == "Windows": 
+    os.system("updates/DatabaseVersion.py")
+
 ###============== Main Program ==============###
 sys = platform.system()
-sets = []
-
 sets = []
 RemplirSets("sets/TXT-SetFiles/sets.txt", sets)
 
