@@ -184,6 +184,9 @@ while True:
             except FileNotFoundError:
                 print("Ce set n'existe pas, veuillez reessayer")
                 pass
+            except ValueError:
+                print("Cette entree est invalide")
+                pass
 
     
     elif action == "2":
