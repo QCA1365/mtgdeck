@@ -7,13 +7,9 @@ import json
 
 # End of imports
 
-<<<<<<< HEAD
 sys = platform.system()
 
 def SetFileCreator(sys):
-=======
-def SetFileCreator(files):
->>>>>>> 5e2be2bf68ee977cf5fefd4cd35d85f0ac55f6c1
 	setList = []
 	if sys == "Linux":
 		with open("List/SetList.json","r") as SetData:
@@ -22,7 +18,6 @@ def SetFileCreator(files):
 		with open("List/SetList.json","r") as SetData:
 			data = json.load(SetData)
 	for Set in data:
-<<<<<<< HEAD
 		CompleteSet = Set["name"] + "," + Set["code"] +  "," + str(Set["totalSetSize"])
 		setList.append(CompleteSet)
 	SetData.close()
@@ -30,12 +25,6 @@ def SetFileCreator(files):
 		os.mkdir('../TXT-SetFiles')
 	os.chdir('../TXT-SetFiles')
 	with open("sets.txt", "w+") as AllSetsFile:	#sets.txt is required by repertoire.py 09082019@0046Z Esteban Carrillo -- TO BE ADDED IN DOCUMENTATION
-=======
-		CompleteSet = Set["name"] + "," + Set["code"] + "," + str(Set["totalSetSize"])
-		setList.append(CompleteSet)
-	SetData.close()
-	with open("../TXT-SetFiles/sets.txt", "w+") as AllSetsFile:	#sets/TXT-SetFiles/sets.txt is required by repertoire.py 09082019@0046Z Esteban Carrillo -- TO BE ADDED IN DOCUMENTATION
->>>>>>> 5e2be2bf68ee977cf5fefd4cd35d85f0ac55f6c1
 		for setInfo in setList:
 			AllSetsFile.write(setInfo + "\n")
 	AllSetsFile.close()
@@ -80,7 +69,6 @@ def manaCost(cards):
 	except KeyError:
 		return "0"
 
-<<<<<<< HEAD
 if sys == "Linux":
 	directory = "sets/JSON-SetFiles/"
 elif sys == "Windows":
@@ -90,12 +78,6 @@ files = glob.glob("*.json")
 #print(files)					#In case of debugging, this line will print all the sets in the order where this program goes through them 09082019@0136Z Esteban Carrillo
 SetFileCreator(sys)
 os.chdir('..')
-=======
-os.chdir("sets/JSON-SetFiles/")				#This line adapts to repertoire.py's place which should be in ../ from this file
-files = glob.glob("*.json")
-#print(files)					#In case of debugging, this line will print all the sets in the order where this program goes through them 09082019@0136Z Esteban Carrillo
-SetFileCreator(files)
->>>>>>> 5e2be2bf68ee977cf5fefd4cd35d85f0ac55f6c1
 for mtgSet in files:
 	if sys == "Linux":
 		mtgSetFile = ("TXT-SetFiles/"+mtgSet[:-5]+".txt")

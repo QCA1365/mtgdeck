@@ -3,7 +3,6 @@
 import os
 import platform
 
-<<<<<<< HEAD
 #End of imports
 
 #Beginning of stable variables
@@ -11,15 +10,16 @@ import platform
 sys = platform.system()
 
 #End of stable variables
-=======
-sys = platform.system()
+
+###============ Database Updating ============###
+
 if sys == "Linux":
-    os.system("python3 sets/setparser.py")
-    os.system("python3 inventory/maker.py")
-elif sys == "Windows":
-    os.system("sets/setparser.py")
-    os.system("inventory/maker.py")
->>>>>>> 5e2be2bf68ee977cf5fefd4cd35d85f0ac55f6c1
+    os.system("python3 updates/DatabaseVersion.py")
+if sys == "Windows": 
+    os.system("updates/DatabaseVersion.py")
+
+###========== Database Updating end ==========###
+
 
 def RemplirSets(filename, ListeSets):
     file = open(filename, "r")
@@ -99,19 +99,6 @@ def ManaCalc(deck,worth):
                     print(card)
             else:
                 print(card)
-
-<<<<<<< HEAD
-###============ Database Updating ============###
-=======
-###============== Main Program ==============###
-sys = platform.system()
-sets = []
->>>>>>> 5e2be2bf68ee977cf5fefd4cd35d85f0ac55f6c1
-
-if sys == "Linux":
-    os.system("python3 updates/DatabaseVersion.py")
-if sys == "Windows": 
-    os.system("updates/DatabaseVersion.py")
 
 ###============== Main Program ==============###
 sys = platform.system()
@@ -207,12 +194,9 @@ while True:
             except FileNotFoundError:
                 print("Ce set n'existe pas, veuillez reessayer")
                 pass
-<<<<<<< HEAD
             except ValueError:
                 print("Cette entree est invalide")
                 pass
-=======
->>>>>>> 5e2be2bf68ee977cf5fefd4cd35d85f0ac55f6c1
 
     
     elif action == "2":
