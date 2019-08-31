@@ -9,15 +9,16 @@ for mtgset in lines:
 for CardSet in SetList:
     CardSet = CardSet.split(',')
     try:
-        f = open(('inventory/' + CardSet[1])+'.txt','x')
-        for x in range(1,int(CardSet[2])+1):
-            if x <= 9:
-                f.write(CardSet[1]+"/00"+str(x)+" ---> 0\n")
-            elif x <= 99:
-                f.write(CardSet[1]+"/0"+str(x)+" ---> 0\n")
-            elif x <= 999:
-                f.write(CardSet[1]+"/"+str(x)+" ---> 0\n")
-        f.close()
+        if os.path.exists(('inventory/' + CardSet[1])+'.txt') == False:
+            f = open(('inventory/' + CardSet[1])+'.txt','x')
+            for x in range(1,int(CardSet[2])+1):
+                if x <= 9:
+                    f.write(CardSet[1]+"/00"+str(x)+" ---> 0\n")
+                elif x <= 99:
+                    f.write(CardSet[1]+"/0"+str(x)+" ---> 0\n")
+                elif x <= 999:
+                    f.write(CardSet[1]+"/"+str(x)+" ---> 0\n")
+            f.close()
 
     except FileExistsError:
         pass
