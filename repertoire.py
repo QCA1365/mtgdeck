@@ -64,10 +64,10 @@ def ColorTest(ManaCost):
 def namesearch(deck, names):
     cards = []
     for x in deck:
-        if names in x[2].split(' '):
+        if names in x[2].lower().split(' '):
            cards.append(x)
     for x in deck:
-        if names in x[2].split("'"):
+        if names in x[2].lower().split("'"):
             cards.append(x)
     return cards
 
@@ -131,7 +131,7 @@ while True:
                     print(lines[int(CardNumber)-1])
 
                 except FileNotFoundError:
-                    print("Cette carte n'est pas valide, veuillez ressayer")
+                    print("Cette entree n'est pas valide, veuillez ressayer")
 
             elif data == "2":
                 file = open("sets/TXT-SetFiles/sets.txt", "r")
@@ -236,7 +236,7 @@ while True:
                         x[3] = ColorTest(card)
                         print(card)
                     
-            elif information == '3':                                #Could be modified for keyword search 20190810@2109Z Esteban Carrillo
+            elif information == '3':
                 names = input('Quel est le nom de la carte? ')
                 card = namesearch(deck, names)
                 for x in card:
