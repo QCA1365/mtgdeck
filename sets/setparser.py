@@ -121,4 +121,6 @@ for mtgSet in files:
 			SetFile.write(card + "\n")
 	SetFile.close()
 
+os.chdir('..')	#Returning to highest level
+
 print("setparser.py is done")
