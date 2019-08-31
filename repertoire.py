@@ -13,10 +13,7 @@ sys = platform.system()
 
 ###============ Database Updating ============###
 
-if sys == "Linux":
-    os.system("python3 updates/DatabaseVersion.py")
-if sys == "Windows": 
-    os.system("updates/DatabaseVersion.py")
+exec(open("updates/DatabaseVersion.py").read())
 
 ###========== Database Updating end ==========###
 
