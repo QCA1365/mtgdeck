@@ -1,3 +1,5 @@
+import os
+
 file = open("sets/TXT-SetFiles/sets.txt", "r")
 lines = file.readlines()
 SetList = []
@@ -10,7 +12,7 @@ for CardSet in SetList:
     CardSet = CardSet.split(',')
     try:
         if os.path.exists(('inventory/' + CardSet[1])+'.txt') == False:
-            f = open(('inventory/' + CardSet[1])+'.txt','x')
+            f = open(('inventory/' + CardSet[1])+'.txt','w+')
             for x in range(1,int(CardSet[2])+1):
                 if x <= 9:
                     f.write(CardSet[1]+"/00"+str(x)+" ---> 0\n")
@@ -20,7 +22,8 @@ for CardSet in SetList:
                     f.write(CardSet[1]+"/"+str(x)+" ---> 0\n")
             f.close()
 
-    except FileExistsError:
+    except:
+        print('ERROR IN CREATING ' +'inventory/' + CardSet[1] +'.txt')
         pass
 
 print('maker.py is done!')

@@ -24,7 +24,7 @@ try:
 		VersionFile = open("updates/version.txt","w+")
 		VersionFile.write(DataVersion)
 		VersionFile.close()
-		
+			
 except:
 	print('You are not connected to Internet, mtgdeck will NOT update')
 	pass
